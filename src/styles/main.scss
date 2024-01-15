@@ -2,28 +2,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap');
 
 
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
 $primary-font: 'Mulish', sans-serif;
 $stronger-font: 'Roboto', sans-serif;
 
-$primary-color: #fff;
-$secondary-color: #fff;
-$tertiary-color: #f2f2f2;
-$accent-color: #ff5a5f;
-$accent-color-light: #ff7b7f;
-$accent-color-dark: #e00000;
-$accent-color-darker: #c10000;
-$accent-color-darkest: #a20000;
+$bacground-color: #fff;
+$primary-color: #FC7BE9;
+$secondary-color: #555BFE;
+$tertiary-color: #D061FC;
+$accent-color-cyan: #51FEE9;
+$accent-color-melon: #FFC9BB;
+
 
 .gradient {
-    background: linear-gradient(to right, $accent-color, $accent-color-light);
+    background: linear-gradient(90deg, $primary-color 0%, $secondary-color, $tertiary-color 100%);
 }
 
 body {
-  font-family: $primary-font;
-  background-color: #fff;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: $primary-font;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $primary-color;
+    background-color: $bacground-color;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+li{
+    list-style: none;
 }
 
 
