@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap');
 
 
-$breakpoints: (
+$break-points: (
   xs: 0,
   sm: 576px,
   md: 768px,
@@ -14,7 +14,7 @@ $breakpoints: (
 $primary-font: 'Mulish', sans-serif;
 $stronger-font: 'Roboto', sans-serif;
 
-$bacground-color: #fff;
+$background-color: #fff;
 $primary-color: #FC7BE9;
 $secondary-color: #555BFE;
 $tertiary-color: #D061FC;
@@ -22,16 +22,16 @@ $accent-color-cyan: #51FEE9;
 $accent-color-melon: #FFC9BB;
 
 
-.gradient {
-    background: linear-gradient(90deg, $primary-color 0%, $secondary-color, $tertiary-color 100%);
-}
+$gradient: linear-gradient(45deg, $primary-color 0%, $secondary-color, $tertiary-color 100%);
+$gradient-cyan: linear-gradient(90deg, $accent-color-cyan 0%, $secondary-color, $tertiary-color 100%);
 
 body {
     font-family: $primary-font;
     font-size: 1rem;
     line-height: 1.5;
-    color: $primary-color;
-    background-color: $bacground-color;
+    background-color: $background-color;
+    margin:0;
+    padding: 0;
 }
 a {
     text-decoration: none;
