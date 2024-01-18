@@ -1,0 +1,42 @@
+@import "main.scss";
+
+.technologies{
+    display: flex;
+    flex-direction: column;
+   background: linear-gradient(to right, $primary-color , $secondary-color, $tertiary-color, $accent-color-cyan, $accent-color-melon);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.technology{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly; 
+    border-bottom: 1px solid $tertiary-color;
+    width: 100%;
+    padding: 10px;
+    &:nth-child(2n){
+        flex-direction: row-reverse;
+    }
+    &__icon{
+        font-size: 45px;
+        margin-right: 15px;
+        background: $gradient-cyan;
+        color: white;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:nth-child(2n){
+            background: blue;
+        }
+    }
+    &__name{
+        font-weight: 900;
+        font-size: 22px;
+    }
+}
+
