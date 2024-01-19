@@ -26,9 +26,28 @@ const ProjectsContainer: React.FC = () => {
       githubLink: "https://github.com/project2",
       liveLink: "https://project2.com",
       imageSrc: "project2.png",
-      description: "This is project 2.",
-      technologies: ["React", "JavaScript"],
-      additionalInfo: "Additional info about project 2.",
+      description:
+        "This is project 2.This is project 2.This is project 2.This is project 2.This is project 2.This is project 2.This is project 2.This is project 2.",
+      technologies: [
+        "React",
+        "JavaScript",
+        "React",
+        "JavaScript",
+        "React",
+        "JavaScript",
+        "React",
+        "JavaScript",
+        "React",
+        "JavaScript",
+        "React",
+        "JavaScript",
+        "React",
+        "JavaScript",
+        "React",
+        "JavaScript",
+      ],
+      additionalInfo:
+        "Additional info about project 2.Additional info about project 2.This is project 2.This is project 2.This is project 2.This is project 2.",
     },
   ];
 

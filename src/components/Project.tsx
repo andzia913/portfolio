@@ -1,4 +1,9 @@
 import React from "react";
+import "../styles/project.scss";
+import { GrTechnology } from "react-icons/gr";
+import { CiCircleInfo } from "react-icons/ci";
+import { TbWriting } from "react-icons/tb";
+import { FaGithub } from "react-icons/fa";
 
 interface ProjectProps {
   title: string;
@@ -19,37 +24,58 @@ const Project: React.FC<ProjectProps> = ({
   technologies,
   additionalInfo,
 }) => {
+  const [activeSection, setActiveSection] = React.useState("description");
+
   return (
-    <div className="projects">
-      <h2 className="projects__title">{title}</h2>
-      <div className="projects__container">
-        <div className="projects__sidebar">
-          <li className="projects__sidebar-item">Project Description</li>
-          <li className="projects__sidebar-item">Project Technologies</li>
-          <li className="projects__sidebar-item">Additional Info</li>
+    <div className="project">
+      <h2 className="project__title">{title}</h2>
+      <img className="project__image" src={imageSrc} alt={title} />
+      <div className="project__container">
+        <div className="project__sidebar">
+          <li
+            className={`project__sidebar-item ${
+              activeSection === "description"
+                ? "project__sidebar-item--active"
+                : ""
+            }`}
+            onClick={() => setActiveSection("description")}
+          >
+            <TbWriting />
+          </li>
+          <li
+            className={`project__sidebar-item ${
+              activeSection === "technologies"
+                ? "project__sidebar-item--active"
+                : ""
+            }`}
+            onClick={() => setActiveSection("technologies")}
+          >
+            <GrTechnology />
+          </li>
+          <li
+            className={`project__sidebar-item ${
+              activeSection === "info" ? "project__sidebar-item--active" : ""
+            }`}
+            onClick={() => setActiveSection("info")}
+          >
+            <CiCircleInfo />
+          </li>
         </div>
-        <div className="projects__content">
-          <img className="projects__image" src={imageSrc} alt={title} />
-          <div className="projects__links">
-            <a className="projects__link" href={githubLink}>
-              <i className="fab fa-github"></i> GitHub
-            </a>
-            <a className="projects__link" href={liveLink}>
-              Live View
-            </a>
-          </div>
-          <div className="projects__details">
-            <div className="projects__detail projects__description">
-              {description}
-            </div>
-            <div className="projects__detail projects__technologies">
-              {technologies.join(", ")}
-            </div>
-            <div className="projects__detail projects__additional-info">
-              {additionalInfo}
-            </div>
+        <div className="project__content">
+          <div className="project__details">
+            {activeSection === "description" && description}
+            {activeSection === "technologies" && technologies.join(", ")}
+            {activeSection === "info" && additionalInfo}
           </div>
         </div>
+      </div>
+      <div className="project__links">
+        <a className="project__link" href={githubLink}>
+          <FaGithub /> Code on GitHub
+        </a>
+        <a className="project__link" href={liveLink}>
+          Live View
+        </a>
       </div>
     </div>
   );

@@ -1,0 +1,67 @@
+@import 'main.scss';
+
+.project{
+    background: $gradient-cyan;
+
+    &__title{
+        font-family: $primary-font;
+        font-weight: 300;
+        font-size: 1,8rem;
+        color: $accent-color-cyan;
+        text-align: center;
+        padding: 1rem;
+    }
+    &__container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border: 2px solid $accent-color-cyan;
+    }
+    &__sidebar{
+        position: absolute;
+        right: 0;
+        top:0;
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-end;
+        height: 100%;
+        font-size: 25px;
+
+        &-item{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+            height: 100%;
+            width: 50px;
+            background-color: $accent-color-cyan;
+            color: $tertiary-color;
+            border-left: none;
+            border-bottom: none;
+            
+            &:last-child{
+            }
+            &--active{
+                background: transparent;
+                color: $background-color
+            }
+        }
+    }
+    &__content{
+        margin-right: 50px;
+    }
+    &__links{
+        background-color: $accent-color-cyan;
+        color: $tertiary-color;
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+}
