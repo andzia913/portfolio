@@ -3,9 +3,7 @@
 .technologies{
     display: flex;
     flex-direction: column;
-   background: linear-gradient(to right, $primary-color , $secondary-color, $tertiary-color, $accent-color-cyan, $accent-color-melon);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+   
 }
 
 .technology{
@@ -16,6 +14,10 @@
     border-bottom: 1px solid $tertiary-color;
     width: 100%;
     padding: 10px;
+    background: linear-gradient(to right, $primary-color , $secondary-color, $tertiary-color, $accent-color-cyan, $accent-color-melon);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
     &:nth-child(2n){
         flex-direction: row-reverse;
     }
@@ -23,15 +25,18 @@
         font-size: 45px;
         margin-right: 15px;
         background: $gradient-cyan;
-        color: white;
+        color: $accent-color-cyan;
+        text-shadow: 1px 1px 1px black;
         width: 90px;
         height: 90px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 1px 1px 3px black;
         &:nth-child(2n){
             background: blue;
+            color: $primary-color
         }
     }
     &__name{

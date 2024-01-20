@@ -4,6 +4,7 @@ import { GrTechnology } from "react-icons/gr";
 import { CiCircleInfo } from "react-icons/ci";
 import { TbWriting } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
+import { FaEye } from "react-icons/fa6";
 
 interface ProjectProps {
   title: string;
@@ -74,6 +75,7 @@ const Project: React.FC<ProjectProps> = ({
           <FaGithub /> Code on GitHub
         </a>
         <a className="project__link" href={liveLink}>
+          <FaEye />
           Live View
         </a>
       </div>

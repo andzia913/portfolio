@@ -1,5 +1,7 @@
 import React from "react";
 import Project from "./Project";
+import "../styles/projects-container.scss";
+
 interface ProjectProps {
   title: string;
   githubLink: string;
@@ -22,8 +24,8 @@ const ProjectsContainer: React.FC = () => {
       additionalInfo: "Additional info about project 1.",
     },
     {
-      title: "Project 2",
-      githubLink: "https://github.com/project2",
+      title: "Finan",
+      githubLink: "https://github.com/andzia913/FinanBackend",
       liveLink: "https://project2.com",
       imageSrc: "project2.png",
       description:

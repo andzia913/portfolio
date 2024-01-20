@@ -29,6 +29,7 @@ const Technologies: React.FC = () => {
           <span className="technology__name">{technology.name}</span>
         </div>
       ))}
+      <button className="button">See all</button>
     </div>
   );
 };

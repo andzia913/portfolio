@@ -23,7 +23,11 @@ $accent-color-melon: #FFC9BB;
 
 
 $gradient: linear-gradient(45deg, $primary-color 0%, $secondary-color, $tertiary-color 100%);
-$gradient-cyan: linear-gradient(90deg, $accent-color-cyan 0%, $secondary-color, $tertiary-color 100%);
+$gradient-cyan: linear-gradient(90deg, $accent-color-cyan 0%, $secondary-color, $tertiary-color 100%); 
+$gradient-simple: linear-gradient(45deg, $secondary-color 0%, $primary-color 100%);
+
+
+
 
 body, html {
     font-family: $primary-font;
@@ -41,6 +45,18 @@ a {
 }
 li{
     list-style: none;
+}
+.button{
+    background: $gradient-simple;
+    font-size: 1rem;
+    width: 150px;
+    border-radius: 5%;
+    box-shadow: none;
+    border: none;
+    color: $background-color;
+    margin: 15px auto;
+    padding: 10px;
+
 }
 
 

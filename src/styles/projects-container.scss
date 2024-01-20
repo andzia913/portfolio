@@ -1,0 +1,12 @@
+@import 'main.scss';
+
+.projects-container{
+    padding: 50px 0 20px;
+    
+
+    &__title{
+        color: $secondary-color;
+        margin-bottom: 20px;
+        padding-left: 20px;
+    }
+}

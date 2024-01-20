@@ -6,6 +6,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Technologies from "../components/Technologies";
 import ProjectsContainer from "../components/ProjectsContainer";
+import About from "../components/About";
 
 const IndexPage: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const IndexPage: React.FC = () => {
       <Header />
       <Technologies />
       <ProjectsContainer />
+      <About />
       <Contact />
       <Footer />
     </main>

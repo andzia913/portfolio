@@ -14,7 +14,7 @@ const Contact: React.FC = () => {
 
   return (
     <form className="contact">
-      <h1 className="contact__title">Contact me</h1>
+      <h2 className="contact__title">Contact me</h2>
       <p className="contact__description">
         If you want to get in touch with me, please fill out the form below.
       </p>
@@ -64,6 +64,7 @@ const Contact: React.FC = () => {
         <textarea
           id="text"
           className="contact__textarea"
+          rows={5}
           value={text}
           onChange={(e) => setText(e.target.value)}
           required

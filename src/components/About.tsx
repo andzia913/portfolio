@@ -3,7 +3,7 @@ import React from "react";
 const About: React.FC = () => {
   return (
     <div>
-      <h1>About Me</h1>
+      <h2>About Me</h2>
       <p>Frontend Developer</p>
       <p>
         Description: I am a passionate frontend developer with experience in
