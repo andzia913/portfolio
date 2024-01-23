@@ -7,15 +7,11 @@ const Header: React.FC = () => {
       <div className="header__content">
         <h1 className="header__title">Hi, I'm Angelika</h1>
         <h2 className="header__subtitle">
-          I'm a{" "}
-          <span className="header__subtitle--highlight">
-            Fullstack Developer with expertise in JavaScript, TypeScript, React,
-            Node.js, and other modern web technologies.
-            {/* I build robust,
-            scalable, and user-friendly web applications. I have a passion for
-            problem-solving and love taking on new challenges to continually
-            grow and improve my skills. */}
-          </span>
+          <p className="header__subtitle--highlight">
+            I'm a Fullstack Developer with experience in JavaScript, TypeScript,
+            React, Node.js, and other modern web technologies.
+          </p>
+          <p>And I'm looking for a job {";)"}</p>
         </h2>
       </div>
     </div>

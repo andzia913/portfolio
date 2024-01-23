@@ -23,6 +23,7 @@ $accent-color-melon: #FFC9BB;
 
 
 $gradient: linear-gradient(45deg, $primary-color 0%, $secondary-color, $tertiary-color 100%);
+$gradient-fullpalette: linear-gradient(to right, $primary-color , $secondary-color, $tertiary-color, $accent-color-cyan );
 $gradient-cyan: linear-gradient(90deg, $accent-color-cyan 0%, $secondary-color, $tertiary-color 100%); 
 $gradient-simple: linear-gradient(45deg, $secondary-color 0%, $primary-color 100%);
 
