@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import "../styles/project.scss";
 import { GrTechnology } from "react-icons/gr";
 import { CiCircleInfo } from "react-icons/ci";
@@ -10,7 +10,7 @@ interface ProjectProps {
   title: string;
   githubLink: string;
   liveLink: string;
-  imageSrc: string;
+  imageComponent?: ReactNode;
   description: string;
   technologies: string[];
   additionalInfo: string;
@@ -20,7 +20,7 @@ const Project: React.FC<ProjectProps> = ({
   title,
   githubLink,
   liveLink,
-  imageSrc,
+  imageComponent,
   description,
   technologies,
   additionalInfo,
@@ -30,7 +30,7 @@ const Project: React.FC<ProjectProps> = ({
   return (
     <div className="project">
       <h2 className="project__title">{title}</h2>
-      <img className="project__image" src={imageSrc} alt={title} />
+      <div className="project__img">{imageComponent}</div>
       <div className="project__container">
         <div className="project__sidebar">
           <li
@@ -75,8 +75,7 @@ const Project: React.FC<ProjectProps> = ({
           <FaGithub /> Code on GitHub
         </a>
         <a className="project__link" href={liveLink}>
-          <FaEye />
-          Live View
+          <FaEye /> Live View
         </a>
       </div>
     </div>
