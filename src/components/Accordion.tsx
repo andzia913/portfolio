@@ -5,7 +5,7 @@ import "../styles/accordion.scss";
 
 interface AccordionProps {
   title: string;
-  content: [string];
+  content: string[];
 }
 
 const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
@@ -23,7 +23,13 @@ const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
           {isOpen ? <IoIosArrowDown /> : <IoIosArrowUp />}
         </span>
       </div>
-      {isOpen && <div className="accordion__content">{content}</div>}
+      {isOpen && (
+        <div className="accordion__content">
+          {content.map((element) => (
+            <div className="accordion__element">{element}</div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

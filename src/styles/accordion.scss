@@ -42,6 +42,20 @@
      &__content{
 
      }
+     &__element{
+        margin:15px;
+        padding-bottom: 10px;
+        color: $secondary-color;
+        font-size: 18px;
+        text-align: justify;
+        border-bottom: 1px solid $accent-color-melon;
+        &:nth-child(2n){
+            color: $tertiary-color;
+        }
+        &:last-child{
+            border-bottom: none;
+        }
+     }
 }
    
 
