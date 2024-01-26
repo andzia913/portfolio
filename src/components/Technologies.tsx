@@ -7,6 +7,7 @@ import { FaGitAlt } from "react-icons/fa";
 import { SiMysql } from "react-icons/si";
 import "../styles/technologies.scss";
 import Popup from "./Popup";
+import OtherTechnologies from "./OtherTechnologies";
 
 interface Technology {
   name: string;
@@ -39,7 +40,12 @@ const Technologies: React.FC = () => {
       <button className="button" onClick={() => setIsPopupOpen(true)}>
         See all
       </button>
-      {isPopupOpen && <Popup handleClosePopup={handleClosePopup} />}
+      {isPopupOpen && (
+        <Popup
+          handleClosePopup={handleClosePopup}
+          children={<OtherTechnologies />}
+        />
+      )}
     </div>
   );
 };
