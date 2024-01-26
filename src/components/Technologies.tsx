@@ -6,6 +6,7 @@ import { SiTypescript } from "react-icons/si";
 import { FaGitAlt } from "react-icons/fa";
 import { SiMysql } from "react-icons/si";
 import "../styles/technologies.scss";
+import Popup from "./Popup";
 
 interface Technology {
   name: string;
@@ -13,6 +14,12 @@ interface Technology {
 }
 
 const Technologies: React.FC = () => {
+  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   const technologies: Technology[] = [
     { name: "React", icon: <FaReact /> },
     { name: "NodeJS", icon: <DiNodejs /> },
@@ -29,7 +36,10 @@ const Technologies: React.FC = () => {
           <span className="technology__name">{technology.name}</span>
         </div>
       ))}
-      <button className="button">See all</button>
+      <button className="button" onClick={() => setIsPopupOpen(true)}>
+        See all
+      </button>
+      {isPopupOpen && <Popup handleClosePopup={handleClosePopup} />}
     </div>
   );
 };
