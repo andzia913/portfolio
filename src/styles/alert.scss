@@ -1,0 +1,22 @@
+@import './main.scss';
+
+.alert{
+    padding: 10px 15px;
+    width:100%;
+    height:100%;
+    background-color: #fff;
+    opacity: 0.9;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 19px;
+    &--success{
+        background-color: rgb(114, 180, 114);
+    }
+    &--error{
+        background-color: rgb(221, 71, 71);
+    }
+    &--info{
+        background-color: $background-color;
+        color: $secondary-color;
+    }
+}

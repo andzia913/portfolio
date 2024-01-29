@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../styles/contact.scss";
+import Popup from "./Popup";
+import Alert from "./Alert";
 
+type AlertProps = {
+  status: "success" | "error" | "info";
+  text: string;
+};
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
   const [organization, setOrganization] = useState("");
+  const [isShownAllert, setIsShownAlert] = useState(false);
+  const [alertProps, setAlertProps] = useState<AlertProps>({
+    status: "info",
+    text: "",
+  });
 
   useEffect(() => emailjs.init("IU2Xd6AGrVn_7cJIR"), []);
 
@@ -19,14 +30,40 @@ const Contact: React.FC = () => {
         text: text,
         organization: organization,
       });
-      alert("email successfully sent check inbox");
+      setIsShownAlert(true);
+      setAlertProps({
+        status: "success",
+        text: "Message sent successfully!",
+      });
+      setName("");
+      setEmail("");
+      setText("");
+      setOrganization("");
     } catch (error) {
-      console.log(error);
+      setIsShownAlert(true);
+      setAlertProps({
+        status: "error",
+        text: "Something went wrong. Please try again later.",
+      });
     }
   };
+  useEffect(() => {
+    if (isShownAllert) {
+      const timer = setTimeout(() => {
+        setIsShownAlert(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isShownAllert]);
 
   return (
     <form className="contact" onSubmit={handleSubmit}>
+      {isShownAllert && (
+        <Popup
+          handleClosePopup={() => setIsShownAlert(false)}
+          children={<Alert {...alertProps} />}
+        />
+      )}
       <h2 className="contact__title">Contact me</h2>
       <p className="contact__description">
         If you want to get in touch with me, please fill out the form below.

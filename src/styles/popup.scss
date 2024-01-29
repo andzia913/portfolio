@@ -13,7 +13,7 @@
     justify-content: stretch;
     align-items: stretch;
     width: 90%;
-    background: $background-color;
+    background: transparent;
     border-radius: 10px;
     box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.7);
     &__close-icon{
@@ -21,6 +21,6 @@
         top: 10px;
         right: 10px;
         font-size: 30px;
-        color: $background-color
+        color: $background-color;
     }
 }
