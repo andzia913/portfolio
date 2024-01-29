@@ -18,7 +18,11 @@ const accordionData = [
   },
   {
     title: "Career goals",
-    content: ["Career goals"],
+    content: [
+      "My goal is to continuously acquire knowledge and expand my expertise not only in a narrowly focused field but also by broadening my skills across various technologies.",
+      "I aspire to take on the responsibility for entire projects, aiming to become a leader and mentor in the future.",
+      "I aim to be an active and impactful team member, whose contributions are recognized and valued, contributing to the overall success of the company.",
+    ],
   },
   {
     title: "Know me better",
@@ -52,8 +56,8 @@ const About: React.FC = () => {
           creativity and functionality.
         </p>
       </div>
-      {accordionData.map((item) => (
-        <Accordion title={item.title} content={item.content} />
+      {accordionData.map((item, index) => (
+        <Accordion key={index} title={item.title} content={item.content} />
       ))}
     </div>
   );
