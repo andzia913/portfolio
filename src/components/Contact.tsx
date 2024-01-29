@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "../styles/contact.scss";
 
 const Contact: React.FC = () => {
@@ -7,52 +8,25 @@ const Contact: React.FC = () => {
   const [text, setText] = useState("");
   const [organization, setOrganization] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => emailjs.init("IU2Xd6AGrVn_7cJIR"), []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const nodemailer = require("nodemailer");
-
-    exports.handler = async (event, context) => {
-      const { name, email, organization, text } = JSON.parse(event.body);
-
-      // Create a transporter using your email provider's SMTP settings
-      const transporter = nodemailer.createTransport({
-        host: "smtp.example.com",
-        port: 587,
-        secure: false,
-        auth: {
-          user: "your-email@example.com",
-          pass: "your-email-password",
-        },
+    try {
+      await emailjs.send("service_a2k0mei", "template_ej0rav4", {
+        name: name,
+        email: email,
+        text: text,
+        organization: organization,
       });
-
-      try {
-        // Send the email
-        await transporter.sendMail({
-          from: "your-email@example.com",
-          to: "your-email@example.com",
-          subject: "New contact form submission",
-          text: `
-            Name: ${name}
-            Email: ${email}
-            Organization: ${organization}
-            Text: ${text}
-          `,
-        });
-
-        return {
-          statusCode: 200,
-          body: "Email sent successfully",
-        };
-      } catch (error) {
-        return {
-          statusCode: 500,
-          body: JSON.stringify({ error: "Failed to send email" }),
-        };
-      }
-    };
+      alert("email successfully sent check inbox");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <form className="contact">
+    <form className="contact" onSubmit={handleSubmit}>
       <h2 className="contact__title">Contact me</h2>
       <p className="contact__description">
         If you want to get in touch with me, please fill out the form below.
@@ -110,7 +84,7 @@ const Contact: React.FC = () => {
         />
       </div>
 
-      <button type="submit" className="contact__button" onClick={handleSubmit}>
+      <button type="submit" className="contact__button">
         Submit
       </button>
     </form>
