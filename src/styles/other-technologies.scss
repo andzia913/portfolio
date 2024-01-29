@@ -7,7 +7,7 @@
     justify-content: stretch;
     align-items: stretch;
     &__element{
-        height: 80px;
+        min-height: 80px;
         background-image: $gradient-radial;
         display: flex;
         flex-grow: 1;
@@ -20,7 +20,7 @@
             padding: 25px;
             font-size: 20px;
             font-weight: 900;
-            color: $secondary-color;
+            color: $background-color;
         }
         &-description{
             display: flex;
@@ -31,7 +31,7 @@
             margin-bottom: 10px;
             width:100%;
             height: 100%;
-            background-color: $accent-color-melon;
+            background-color: $background-color;
             color: $secondary-color;
             text-align: center;
 

@@ -1,81 +1,99 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../styles/other-technologies.scss";
 
-interface PopupElement {
+interface OtherTechnologiesElement {
   name: string;
   description: string;
 }
 
 const OtherTechnologies: React.FC = () => {
-  const [popupElementsState, setPopupElementsState] = useState<{
+  const [techElementsState, setTechElementsState] = useState<{
     [key: string]: boolean;
   }>({});
 
   const handleToggleDescription = (name: string) => {
-    setPopupElementsState((prevState) => ({
+    setTechElementsState((prevState) => ({
       ...prevState,
       [name]: !prevState[name],
     }));
   };
-  const popupElements: PopupElement[] = [
+  const popupElements: OtherTechnologiesElement[] = [
     {
       name: "React",
-      description: "Interactive UI and dynamic user interfaces using React",
+      description:
+        "I am proficient in creating interactive and dynamic user interfaces using React.",
     },
     {
       name: "TypeScript",
       description:
-        "Explicit types and interfaces to catch errors during development and improve code",
+        "I possess expertise in using explicit types and interfaces to catch errors during code development.",
     },
     {
       name: "Node.js",
       description:
-        "Scalable, efficient backend backend applications with RESTful APIs",
+        "I am skilled in building scalable and efficient backend applications with Node.js.",
     },
     {
       name: "Express JS",
-      description: "Robust APIs and server-side logic",
+      description:
+        "I excel in crafting robust APIs and server-side logic with Express.js.",
     },
     {
       name: "SEO",
-      description: "Website optimization for search engines",
+      description:
+        "I have the ability to optimize websites for search engine visibility.",
     },
     {
       name: "HTML",
       description:
-        "Proficient in HTML5, for creating structured and semantically web content",
+        "I am proficient in creating structured and semantically rich web content with HTML5.",
     },
     {
       name: "LightHouse",
-      description: "Web performance auditing and optimization",
+      description:
+        "I am capable of conducting web performance audits and optimizing website performance.",
     },
     {
       name: "IDEs",
-      description: "Efficient coding and project management",
+      description:
+        "I can efficiently manage code and projects within Integrated Development Environments (IDEs).",
     },
     {
       name: "Fetch API",
-      description: "Handling responses and managing data flow",
+      description:
+        "I am adept at handling responses and managing data flow using the Fetch API.",
     },
     {
       name: "Material UI",
       description:
-        "Creating visually and responsive user interfaces appealing UI",
+        "I am skilled in creating visually appealing and responsive user interfaces with Material UI.",
     },
     {
       name: "Clean Code",
-      description: "Improving code quality and readability",
+      description:
+        "I have the ability to improve code quality and readability, ensuring clean and maintainable code.",
     },
     {
       name: "Sass",
-      description: "Streamlining styling workflows",
+      description:
+        "I am proficient in streamlining styling workflows using Sass.",
     },
     {
       name: "Git",
-      description: "Version control and collaboration",
+      description:
+        "I am proficient in using Git for version control and facilitating effective collaboration.",
+    },
+    {
+      name: "SQL & Relational Databases",
+      description:
+        "I have expertise in designing and querying relational databases using SQL, ensuring efficient data storage and retrieval.",
+    },
+    {
+      name: "Postman",
+      description:
+        "I am proficient in utilizing Postman for API development, testing, and collaboration, streamlining the API workflow.",
     },
   ];
-
   return (
     <div className="other-technologies">
       {popupElements.map((element, index) => (
@@ -84,15 +102,14 @@ const OtherTechnologies: React.FC = () => {
           onClick={() => handleToggleDescription(element.name)}
           key={index}
         >
-          {!popupElementsState[element.name] && (
+          {!techElementsState[element.name] && (
             <div className="other-technologies__element-name">
               {element.name}
             </div>
           )}
-          {popupElementsState[element.name] && (
+          {techElementsState[element.name] && (
             <div className="other-technologies__element-description">
-              {element.name + ". "}
-              {element.description}
+              {element.name + ". " + element.description}
             </div>
           )}
         </div>

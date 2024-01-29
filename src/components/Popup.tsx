@@ -9,8 +9,15 @@ interface PopupProps {
 
 const Popup: React.FC<PopupProps> = ({ handleClosePopup, children }) => {
   const popupRef = useRef<HTMLDivElement | null>(null);
+  const popupCloseRef = useRef<HTMLDivElement | null>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
+    if (
+      popupCloseRef.current &&
+      popupCloseRef.current.contains(event.target as Node)
+    ) {
+      handleClosePopup();
+    }
     if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
       handleClosePopup();
     }
@@ -25,7 +32,7 @@ const Popup: React.FC<PopupProps> = ({ handleClosePopup, children }) => {
 
   return (
     <div className="popup" ref={popupRef}>
-      <div className="popup__close-icon" onClick={handleClosePopup}>
+      <div className="popup__close-icon" ref={popupCloseRef}>
         <IoIosCloseCircle />
       </div>
       {children}

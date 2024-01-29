@@ -27,7 +27,7 @@ $gradient-fullpalette: linear-gradient(to right, $primary-color , $secondary-col
 $gradient-cyan: linear-gradient(90deg, $accent-color-cyan 0%, $secondary-color, $tertiary-color 100%); 
 $gradient-simple: linear-gradient(45deg, $secondary-color 0%, $primary-color 100%);
 
-$gradient-radial: radial-gradient($primary-color, $accent-color-melon 100% );
+$gradient-radial: radial-gradient(circle, $primary-color 0%, $tertiary-color 100%);
 
 
 
@@ -56,7 +56,7 @@ li{
     box-shadow: none;
     border: none;
     color: $background-color;
-    margin: 15px auto;
+    margin: 25px auto;
     padding: 10px;
 
 }

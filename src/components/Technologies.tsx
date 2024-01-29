@@ -30,7 +30,7 @@ const Technologies: React.FC = () => {
   ];
 
   return (
-    <div className="technologies">
+    <div className="technologies" onClick={() => setIsPopupOpen(true)}>
       {technologies.map((technology) => (
         <div key={technology.name} className="technology">
           <div className="technology__icon">{technology.icon}</div>

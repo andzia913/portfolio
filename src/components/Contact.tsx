@@ -9,8 +9,47 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-  };
+    const nodemailer = require("nodemailer");
+
+    exports.handler = async (event, context) => {
+      const { name, email, organization, text } = JSON.parse(event.body);
+
+      // Create a transporter using your email provider's SMTP settings
+      const transporter = nodemailer.createTransport({
+        host: "smtp.example.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: "your-email@example.com",
+          pass: "your-email-password",
+        },
+      });
+
+      try {
+        // Send the email
+        await transporter.sendMail({
+          from: "your-email@example.com",
+          to: "your-email@example.com",
+          subject: "New contact form submission",
+          text: `
+            Name: ${name}
+            Email: ${email}
+            Organization: ${organization}
+            Text: ${text}
+          `,
+        });
+
+        return {
+          statusCode: 200,
+          body: "Email sent successfully",
+        };
+      } catch (error) {
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ error: "Failed to send email" }),
+        };
+      }
+    };
 
   return (
     <form className="contact">
