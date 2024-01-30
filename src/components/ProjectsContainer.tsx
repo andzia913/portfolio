@@ -57,15 +57,17 @@ const ProjectsContainer: React.FC = () => {
       title: "Portfolio landing page",
       githubLink: "https://github.com/andzia913/fpdev",
       liveLink: "https://fpdevelopment.com.pl",
-      // imageComponent: (
-      //   <StaticImage
-      //     src="../images/fpdev-xs.png"
-      //     alt="fpdevelopment.com.pl screenshot"
-      //   />
-      // ),
       description:
         "Landing page about me and my projects, created in Gatsby. This portfolio provides a concise overview of my web development projects, tailored for recruiters' easy review. Explore my portfolio to see my capabilities and potential contributions to your team.",
-      technologies: ["React", "TypeScript", "Gatsby", "Scss"],
+      technologies: [
+        "React",
+        "TypeScript",
+        "Gatsby",
+        "Scss",
+        "Css",
+        "HTML",
+        "RWD",
+      ],
       additionalInfo: "This is the project you are currently viewing.",
     },
   ];
