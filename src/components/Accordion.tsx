@@ -25,8 +25,10 @@ const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
       </div>
       {isOpen && (
         <div className="accordion__content">
-          {content.map((element) => (
-            <div className="accordion__element">{element}</div>
+          {content.map((element, index) => (
+            <div key={index} className="accordion__element">
+              {element}
+            </div>
           ))}
         </div>
       )}

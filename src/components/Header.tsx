@@ -10,7 +10,7 @@ const Header: React.FC = () => {
         alt="keyboard"
         placeholder="blurred"
         layout="fullWidth"
-        z-tabIndex={-1}
+        z-index={-1}
       />
       <div className="header__content">
         <h1 className="header__title">Hi, I'm Angelika</h1>
@@ -20,6 +20,9 @@ const Header: React.FC = () => {
             React, Node.js, and other modern web technologies.
           </p>
           <p>And I'm looking for a job {";)"}</p>
+          <a className="button" href="#projects">
+            See my projects
+          </a>
         </h2>
       </div>
     </div>

@@ -55,8 +55,8 @@ const ProjectsContainer: React.FC = () => {
     },
     {
       title: "Portfolio landing page",
-      githubLink: "https://github.com/andzia913/fpdev",
-      liveLink: "https://fpdevelopment.com.pl",
+      githubLink: "https://github.com/andzia913/portfolio",
+      liveLink: "/",
       description:
         "Landing page about me and my projects, created in Gatsby. This portfolio provides a concise overview of my web development projects, tailored for recruiters' easy review. Explore my portfolio to see my capabilities and potential contributions to your team.",
       technologies: [
@@ -73,7 +73,7 @@ const ProjectsContainer: React.FC = () => {
   ];
 
   return (
-    <div className="projects-container">
+    <div className="projects-container" id="projects">
       <h2 className="projects-container__title">Projects</h2>
       <div className="projects-container__projects">
         {projects.map((project, index) => (
