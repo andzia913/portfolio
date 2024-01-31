@@ -3,10 +3,13 @@
 .project{
     background: $gradient-cyan;
     padding-top: 20px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     &__title{
         font-family: $primary-font;
         font-weight: 600;
+        font-size: 35px;
         margin:0;
         font-size: 1.8rem;
         color: $accent-color-cyan;
@@ -17,6 +20,8 @@
         display: flex;
         justify-content: center;
         opacity: 0.7;
+        width: 350px;
+        height: 205px;
     }
     &__container{
         position: relative;
@@ -24,6 +29,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width:100%;
         min-height: 200px;
         padding: 20px 15px;;
         border: 2px solid $accent-color-cyan;
@@ -31,22 +37,20 @@
     }
     &__details{
         text-align: justify;
-        color: rgba(0, 0, 0, 0.6);
+        color: rgba(0, 0, 0, 0.7);
         font-size: 17px;
-        padding: 5px 5px;
+        padding: 5px 20px;
     }
     &__sidebar{
         position: absolute;
         right: 0;
         top:0;
-        width: 50px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        align-items: flex-end;
         height: 100%;
         font-size: 25px;
-
+        width:65px;
         &-item{
             display: flex;
             justify-content: center;
@@ -69,12 +73,13 @@
         margin-right: 50px;
     }
     &__links{
-        background-color: $accent-color-cyan;
-        color: $secondary-color;
-        padding: 20px 10px 30px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        width:100%;
+        background-color: $accent-color-cyan;
+        color: $secondary-color;
+        padding: 20px 10px 30px;
     }
     &__links a { 
         color: $secondary-color;
@@ -85,7 +90,26 @@
         &:hover{
             color: $tertiary-color;
         }
-
     }
+}
 
+@media (min-width: map-get($break-points, md)) {
+    .project{
+
+        &__img{
+            width: 600px;
+            height: auto;
+        }
+        &__details{
+            padding: 5px 60px 5px 40px;
+            font-size: 20px;
+        }
+        &__sidebar{
+            width:90px;
+            &-item{
+                width: 80px;
+                font-size: 30px;
+            }
+        }
+    }
 }

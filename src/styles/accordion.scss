@@ -44,6 +44,15 @@
             }
         }
 }
-   
+
+@media (min-width: map-get($break-points, md)) {
+    .accordion{
+
+        &__element{
+            padding: 0 2%;
+        }
+     
+    }
+}
 
  

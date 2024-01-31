@@ -20,7 +20,7 @@ const ProjectsContainer: React.FC = () => {
       githubLink: "https://github.com/andzia913/FinanBackend",
       liveLink: "http://vps-19591a52.vps.ovh.net/",
       imageComponent: (
-        <StaticImage src="../images/finan-xs.png" alt="Finanapp screenshot" />
+        <StaticImage src={`../images/finan.png`} alt="Finanapp screenshot" />
       ),
       description:
         "FinanApp is a dynamic financial management application designed to streamline the tracking and planning your finance. It has two separates parts - backend and frontend. The backend is responsible for the business logic and data storage. The frontend is responsible for the user interface and user experience. The application is still under development.",
@@ -43,7 +43,7 @@ const ProjectsContainer: React.FC = () => {
       liveLink: "https://fpdevelopment.com.pl",
       imageComponent: (
         <StaticImage
-          src="../images/fpdev-xs.png"
+          src="../images/fpdev.png"
           alt="fpdevelopment.com.pl screenshot"
         />
       ),

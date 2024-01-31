@@ -30,10 +30,12 @@ const Project: React.FC<ProjectProps> = ({
   return (
     <div className="project">
       <h2 className="project__title">{title}</h2>
-      <div className="project__img">{imageComponent}</div>
+      <div className={imageComponent ? "project__img" : ""}>
+        {imageComponent}
+      </div>
       <div className="project__container">
         <div className="project__sidebar">
-          <li
+          <div
             className={`project__sidebar-item ${
               activeSection === "description"
                 ? "project__sidebar-item--active"
@@ -42,8 +44,8 @@ const Project: React.FC<ProjectProps> = ({
             onClick={() => setActiveSection("description")}
           >
             <TbWriting />
-          </li>
-          <li
+          </div>
+          <div
             className={`project__sidebar-item ${
               activeSection === "technologies"
                 ? "project__sidebar-item--active"
@@ -52,15 +54,15 @@ const Project: React.FC<ProjectProps> = ({
             onClick={() => setActiveSection("technologies")}
           >
             <GrTechnology />
-          </li>
-          <li
+          </div>
+          <div
             className={`project__sidebar-item ${
               activeSection === "info" ? "project__sidebar-item--active" : ""
             }`}
             onClick={() => setActiveSection("info")}
           >
             <CiCircleInfo />
-          </li>
+          </div>
         </div>
         <div className="project__content">
           <div className="project__details">

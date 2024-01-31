@@ -54,16 +54,24 @@ li{
     font-weight: 600;
     position: relative;
     z-index: 5;
-    background: $gradient-simple;
+    background: $accent-color-cyan;
     font-size: 1rem;
     width: 150px;
     border-radius: 5%;
     box-shadow: none;
     border: none;
-    color: $background-color;
+    color: $secondary-color;
     margin: 40px auto;
     padding: 10px;
-
 }
 
-
+@media (min-width: map-get($break-points, md)) {
+    body {
+        font-size: 0.9rem;
+    }
+    .button {
+        font-size: 1.2rem;
+        width: 200px;
+        margin: 60px auto;
+    }
+}

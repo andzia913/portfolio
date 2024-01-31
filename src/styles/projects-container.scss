@@ -7,6 +7,9 @@
     &__title{
         color: $secondary-color;
         margin-bottom: 20px;
-        padding-left: 20px;
+        padding-left: 8%;
     }
+}
+@media (min-width: map-get($break-points, md)) {
+     
 }
