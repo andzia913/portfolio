@@ -45,14 +45,11 @@
         }
 }
 
-@media (min-width: map-get($break-points, md)) {
+
+@media (min-width: map-get($break-points, lg)) {
     .accordion{
-
-        &__element{
-            padding: 0 2%;
+        &__header{
+            padding: 0 40px;
         }
-     
-    }
 }
-
- 
+}
