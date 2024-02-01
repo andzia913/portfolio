@@ -56,9 +56,11 @@ const About: React.FC = () => {
           creativity and functionality.
         </p>
       </div>
-      {accordionData.map((item, index) => (
-        <Accordion key={index} title={item.title} content={item.content} />
-      ))}
+      <div className="about__additional-info">
+        {accordionData.map((item, index) => (
+          <Accordion key={index} title={item.title} content={item.content} />
+        ))}
+      </div>
     </div>
   );
 };

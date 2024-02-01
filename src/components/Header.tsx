@@ -5,13 +5,25 @@ import "../styles/header.scss";
 const Header: React.FC = () => {
   return (
     <div className="header">
-      <StaticImage
-        src="../images/keyboard.png"
-        alt="keyboard"
-        placeholder="blurred"
-        layout="fullWidth"
-        z-index={-1}
-      />
+      {window.innerWidth < 992 && (
+        <StaticImage
+          src="../images/keyboard.png"
+          alt="keyboard"
+          placeholder="blurred"
+          layout="fullWidth"
+          z-index={-1}
+        />
+      )}
+      {window.innerWidth > 992 && (
+        <StaticImage
+          src="../images/keyboard-xl.png"
+          alt="keyboard"
+          placeholder="blurred"
+          layout="fullWidth"
+          z-index={-1}
+          objectFit="contain"
+        />
+      )}
       <div className="header__content">
         <h1 className="header__title">Hi, I'm Angelika</h1>
         <h2 className="header__subtitle">

@@ -57,7 +57,7 @@ li{
     background: $accent-color-cyan;
     font-size: 1rem;
     width: 150px;
-    border-radius: 5%;
+    border-radius: 15px;
     box-shadow: none;
     border: none;
     color: $secondary-color;
@@ -74,4 +74,14 @@ li{
         width: 200px;
         margin: 60px auto;
     }
+}
+@media (min-width: map-get($break-points, lg)) {
+    body {
+        font-size: 1rem;
+    }
+    .button:hover { 
+        background: $accent-color-melon;
+        color: $secondary-color;
+    }
+    
 }

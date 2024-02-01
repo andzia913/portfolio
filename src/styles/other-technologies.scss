@@ -51,3 +51,14 @@
         }
     }
 }
+
+@media (min-width: map-get($break-points, lg)) {
+    .other-technologies{
+        background-color: $background-color;
+        &__element{
+            width: 15%;
+            margin: 15px;
+            min-height: 160px            
+        }
+    }
+}

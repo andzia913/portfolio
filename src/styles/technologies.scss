@@ -2,10 +2,12 @@
 
 .technologies{
     position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     background-color: $background-color;
+    &__container{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .technology{
@@ -49,4 +51,27 @@
         text-align: center;
     }
 }
-
+@media (min-width: map-get($break-points, lg)) {
+    .technologies__container{
+        flex-direction: row;
+        padding-top: 40px;
+        & button{
+            width:100%;
+        }
+    }
+    .technology{
+        border-bottom: none;
+        &:nth-child(2n){
+            flex-direction: row;
+        }
+        &__name{
+            font-size: 1.2rem ;
+        }
+        &__icon{
+            font-size: 31px;            
+            width: 60px;
+            height: 60px;
+        }
+        
+    }
+}

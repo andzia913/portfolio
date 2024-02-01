@@ -31,12 +31,14 @@ const Technologies: React.FC = () => {
 
   return (
     <div className="technologies" onClick={() => setIsPopupOpen(true)}>
-      {technologies.map((technology) => (
-        <div key={technology.name} className="technology">
-          <div className="technology__icon">{technology.icon}</div>
-          <span className="technology__name">{technology.name}</span>
-        </div>
-      ))}
+      <div className="technologies__container">
+        {technologies.map((technology) => (
+          <div key={technology.name} className="technology">
+            <div className="technology__icon">{technology.icon}</div>
+            <span className="technology__name">{technology.name}</span>
+          </div>
+        ))}
+      </div>
       <button className="button" onClick={() => setIsPopupOpen(true)}>
         See all
       </button>
