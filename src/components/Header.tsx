@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import "../styles/header.scss";
 
 const Header: React.FC = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+  useEffect(() => {
+    window.innerWidth < 992 ? setIsMobile(true) : setIsMobile(false);
+  }, []);
   return (
     <div className="header">
-      {window.innerWidth < 992 && (
+      {isMobile && (
         <StaticImage
           src="../images/keyboard.png"
           alt="keyboard"
@@ -14,7 +18,7 @@ const Header: React.FC = () => {
           z-index={-1}
         />
       )}
-      {window.innerWidth > 992 && (
+      {!isMobile && (
         <StaticImage
           src="../images/keyboard-xl.png"
           alt="keyboard"
