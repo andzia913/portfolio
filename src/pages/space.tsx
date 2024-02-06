@@ -29,13 +29,18 @@ const Space: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-    ApiService.fetchData(countOfRandomImages).then(
-      (response: PictureAPIData[]) => {
+    ApiService.fetchData(countOfRandomImages)
+      .then((response: PictureAPIData[]) => {
         setData(response);
         setLoading(false);
-      }
-    );
+        console.log(data, "jako data");
+      })
+      .catch((error: string) => {
+        setError(error);
+        setLoading(false);
+      });
   }, []);
+
   useEffect(() => {
     setLoading(true);
     ApiService.fetchData(countOfRandomImages)
@@ -61,7 +66,7 @@ const Space: React.FC = () => {
       <p>
         This is a small application which retrieves data from the NASA REST API.
       </p>
-      <SpaceOneElement pictureData={oneItemDisplay} />
+      {oneItemDisplay ? <SpaceOneElement pictureData={oneItemDisplay} /> : ""}
       <SpaceGallery
         handleChangeCount={handleChangeCount}
         handlePictureClick={handlePictureClick}
