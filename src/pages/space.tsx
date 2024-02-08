@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import SpaceGallery from "../components/SpaceGallery";
 import ApiService from "../services/spaceApiService";
 import { PictureAPIData } from "../types/PictureApiData";
@@ -16,43 +15,19 @@ const Space: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-    ApiService.fetchData(countOfRandomImages)
-      .then((response: PictureAPIData[]) => {
+    const fetchData = async (countOfRandomImages: number) => {
+      try {
+        const response = await ApiService(countOfRandomImages);
         setData(response);
         setLoading(false);
-      })
-      .catch((error: string) => {
-        setError(error);
+      } catch (error) {
+        setError((error as Error).message);
         setLoading(false);
-      });
+      }
+    };
+    fetchData(countOfRandomImages);
   }, [countOfRandomImages]);
 
-  useEffect(() => {
-    setLoading(true);
-    ApiService.fetchData(countOfRandomImages)
-      .then((response: PictureAPIData[]) => {
-        setData(response);
-        setLoading(false);
-        console.log(data, "jako data");
-      })
-      .catch((error: string) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
-
-  useEffect(() => {
-    setLoading(true);
-    ApiService.fetchData(countOfRandomImages)
-      .then((response: PictureAPIData[]) => {
-        setData(response);
-        setLoading(false);
-      })
-      .catch((error: string) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
   const handleChangeCount = (count: number) => {
     setCountOfRandomImages(count);
   };
@@ -66,12 +41,14 @@ const Space: React.FC = () => {
       <p>
         This is a small application which retrieves data from the NASA REST API.
       </p>
-      {oneItemDisplay ? <SpaceOneElement pictureData={oneItemDisplay} /> : ""}
-      <SpaceGallery
-        handleChangeCount={handleChangeCount}
-        handlePictureClick={handlePictureClick}
-        data={data}
-      />
+      {oneItemDisplay && <SpaceOneElement pictureData={oneItemDisplay} />}
+      {data && (
+        <SpaceGallery
+          handleChangeCount={handleChangeCount}
+          handlePictureClick={handlePictureClick}
+          data={data}
+        />
+      )}
     </div>
   );
 };
