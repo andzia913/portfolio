@@ -1,0 +1,36 @@
+
+.gallery{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__card{
+    max-width: 300px;
+    border: 1px solid #000;
+    box-shadow: 1px 1px 3px #000;
+    margin: 20px 10px;
+    padding: 10px;
+    }
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__img-title{
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+    &__img-description{
+    
+    }
+    &__button{
+        margin: 10px;
+        Padding: 10px;
+        border-radius: 0;
+        background-color: white;
+        // color:white;
+        box-shadow: none;
+        border: thick double black;
+        }
+}
+
