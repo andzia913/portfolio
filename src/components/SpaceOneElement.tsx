@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PictureAPIData } from "../types/PictureApiData";
-
+import { IoMdArrowBack } from "react-icons/io";
+import "../styles/spaceOneElement.scss";
 interface SpaceOneElementProps {
   pictureData: PictureAPIData | null;
   handleDateChange: (date: string) => void;
@@ -22,24 +23,44 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
   };
 
   return (
-    <>
-      <div>
-        <button onClick={() => handleCloseOnePicture()}>Close</button>
-        <img src={`${data.url}`} alt={`${data.title}`} />
-        <button type="button" onClick={(e) => handleOpenHDImg(e)}>
+    <div className="space-one-element">
+      <div className="space-one-element__container">
+        <button
+          className="space-one-element__close-button space-button"
+          onClick={() => handleCloseOnePicture()}
+        >
+          <IoMdArrowBack />
+          Back
+        </button>
+        <img
+          className="space-one-element__img"
+          src={`${data.url}`}
+          alt={`${data.title}`}
+        />
+        <button
+          className="space-one-element__hd-button space-button"
+          type="button"
+          onClick={(e) => handleOpenHDImg(e)}
+        >
           See in HD quality
         </button>
-        <p>{data.title}</p>
-        <p>Picture of the day {data.date}</p>
+        <p className="space-one-element__title">{data.title}</p>
+
+        <p className="space-one-element__explanation">{data.explanation}</p>
+        <p className="space-one-element__date">
+          Picture of the day {data.date}
+        </p>
         <form
+          className="space-one-element__form"
           onSubmit={(e) => {
             e.preventDefault();
             setSelectedDate(dateFromInput);
           }}
         >
-          <label htmlFor="date">
+          <label htmlFor="date" className="space-one-element__label">
             Select another date{" "}
             <input
+              className="space-one-element__input"
               type="date"
               id="date"
               onChange={(e) => {
@@ -47,11 +68,15 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
               }}
             />
           </label>
-          <button type="submit">Ok</button>
+          <button
+            className="space-one-element__submit-button space-button"
+            type="submit"
+          >
+            Ok
+          </button>
         </form>
-        <p>{data.explanation}</p>
       </div>
-    </>
+    </div>
   );
 };
 

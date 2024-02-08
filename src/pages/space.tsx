@@ -3,6 +3,7 @@ import SpaceGallery from "../components/SpaceGallery";
 import ApiService from "../services/spaceApiService";
 import { PictureAPIData } from "../types/PictureApiData";
 import SpaceOneElement from "../components/SpaceOneElement";
+import "../styles/space.scss";
 
 const Space: React.FC = () => {
   const [data, setData] = useState<PictureAPIData[] | null>(null);
@@ -45,12 +46,14 @@ const Space: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>NASA picture of the day</h1>
-      <p>
+    <div className="space">
+      <h1 className="space__title">NASA picture of the day</h1>
+      <p className="space__description">
         This is a small application which retrieves data from the NASA REST API.
+        <br />
+        Click on picture to see its explanation
       </p>
-      <p>Click on picture to see its explanation</p>
+
       {oneItemDisplay ? (
         <SpaceOneElement
           pictureData={oneItemDisplay}

@@ -1,0 +1,64 @@
+.space-one-element {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.5);
+    &__container{
+        background-color: rgba(255, 255, 255, 0.25);
+        padding: 10px;
+    }
+    &__close-button {
+
+        }
+    
+    &__img{
+        height:100vh;        
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+    &__hd-button{
+        position: absolute;
+        right:10px;
+        top:10px;
+        
+        }
+    
+    &__title{
+        text-align: center;
+        font-weight: 600;
+    }
+    &__date{
+
+    }
+    &__form{
+        align-items: center;
+    }
+    &__label{
+            }
+    &__input{
+        background-color: transparent;
+        margin: 0;
+        padding: 5px 10px;        
+        border-radius: 0;
+        box-shadow: none;
+        border: 1px solid black;
+    }
+    &__submit-button{
+        
+        
+    }
+    &__explanation{
+        text-align: justify;
+        padding:10px;
+    }
+}
+.space-button{
+    background-color: transparent;
+    margin: 10px;
+    padding: 5px 10px;        
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid black;
+}
