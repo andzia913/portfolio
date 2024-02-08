@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import "../styles/spaceGallery.scss";
 import { PictureAPIData } from "../types/PictureApiData";
+import "../styles/SpaceGallery.scss";
 
 interface SpaceGalleryProps {
   handleChangeCount: (count: number) => void;
@@ -27,25 +27,29 @@ const SpaceGallery: React.FC<SpaceGalleryProps> = ({
   }, [data]);
 
   return (
-    <div>
-      <h1>A gallery of space photos.</h1>
-      <button
-        onClick={(e) => {
-          handleChangeCount(10);
-          e.preventDefault();
-        }}
-      >
-        Refresh to see another 10 pictures
-      </button>
-      <label htmlFor="">
-        Choose how many pictures, you want to see
+    <div className="gallery">
+      <label htmlFor="pictureCount" className="gallery__label">
+        Choose how many pictures you want to see:
         <input
+          id="pictureCount"
           onChange={(e) => handleChangeCount(Number(e.target.value))}
           type="number"
           max={100}
           min={1}
+          placeholder="10"
+          className="gallery__input"
         />
       </label>
+      <button
+        className="gallery__button"
+        onClick={(e) => {
+          handleChangeCount(11 - 1);
+          e.preventDefault();
+        }}
+      >
+        Refresh to see another pictures
+      </button>
+
       {dataGallery &&
         dataGallery.map((item: PictureAPIData) => (
           <div
@@ -53,9 +57,15 @@ const SpaceGallery: React.FC<SpaceGalleryProps> = ({
             className="gallery__card"
             key={item.date}
           >
-            <img src={`${item.url}`} alt={`${item.title}`} />
-            <p>{item.title}</p>
-            <p>Picture of the day {item.date}</p>
+            <img
+              className="gallery__img"
+              src={`${item.url}`}
+              alt={`${item.title}`}
+            />
+            <p className="gallery__img-title">{item.title}</p>
+            <p className="gallery__img-description">
+              Picture of the day {item.date}
+            </p>
           </div>
         ))}
     </div>
