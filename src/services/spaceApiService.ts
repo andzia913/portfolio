@@ -4,7 +4,7 @@ const ApiService = async (countOfRandomImages?: number, date?: string) => {
   const apiKey = process.env.GATSBY_NASA_API_KEY;
   let url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
-  if (countOfRandomImages) {
+  if (countOfRandomImages && !date) {
     url += `&count=${countOfRandomImages}`;
   }
 

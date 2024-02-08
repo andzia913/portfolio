@@ -17,30 +17,47 @@ const SpaceGallery: React.FC<SpaceGalleryProps> = ({
   const [dataGallery, setDataGallery] = useState<PictureAPIData[] | null>(data);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
+  console.log("dataGallery", dataGallery);
+
+  useEffect(() => {
+    if (data) {
+      setDataGallery(data);
+      setLoading(false);
+    }
+  }, [data]);
 
   return (
     <div>
       <h1>A gallery of space photos.</h1>
-      <button>Refresh to see another 10 pictures</button>
+      <button
+        onClick={(e) => {
+          handleChangeCount(10);
+          e.preventDefault();
+        }}
+      >
+        Refresh to see another 10 pictures
+      </button>
       <label htmlFor="">
         Choose how many pictures, you want to see
         <input
           onChange={(e) => handleChangeCount(Number(e.target.value))}
           type="number"
           max={100}
+          min={1}
         />
       </label>
-      {dataGallery?.map((item: PictureAPIData) => (
-        <div
-          onClick={() => handlePictureClick(item)}
-          className="gallery__card"
-          key={item.date}
-        >
-          <img src={`${item.url}`} alt={`${item.title}`} />
-          <p>{item.title}</p>
-          <p>Picture of the day {item.date}</p>
-        </div>
-      ))}
+      {dataGallery &&
+        dataGallery.map((item: PictureAPIData) => (
+          <div
+            onClick={() => handlePictureClick(item)}
+            className="gallery__card"
+            key={item.date}
+          >
+            <img src={`${item.url}`} alt={`${item.title}`} />
+            <p>{item.title}</p>
+            <p>Picture of the day {item.date}</p>
+          </div>
+        ))}
     </div>
   );
 };

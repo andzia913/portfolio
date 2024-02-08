@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { PictureAPIData } from "../types/PictureApiData";
 
 interface SpaceOneElementProps {
   pictureData: PictureAPIData | null;
+  handleDateChange: (date: string) => void;
+  handleCloseOnePicture: () => void;
 }
 
-const SpaceOneElement: React.FC<SpaceOneElementProps> = ({ pictureData }) => {
+const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
+  pictureData,
+  handleDateChange,
+  handleCloseOnePicture,
+}) => {
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [dateFromInput, setDateFromInput] = useState<string>("");
   const [data, setData] = useState<any>(pictureData);
@@ -19,6 +24,7 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({ pictureData }) => {
   return (
     <>
       <div>
+        <button onClick={() => handleCloseOnePicture()}>Close</button>
         <img src={`${data.url}`} alt={`${data.title}`} />
         <button type="button" onClick={(e) => handleOpenHDImg(e)}>
           See in HD quality
@@ -37,7 +43,7 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({ pictureData }) => {
               type="date"
               id="date"
               onChange={(e) => {
-                setDateFromInput(e.target.value);
+                handleDateChange(e.target.value);
               }}
             />
           </label>
