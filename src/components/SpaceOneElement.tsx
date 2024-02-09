@@ -24,6 +24,11 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
 
   return (
     <div className="space-one-element">
+      <img
+        className="space-one-element__img"
+        src={`${data.url}`}
+        alt={`${data.title}`}
+      />
       <div className="space-one-element__container">
         <button
           className="space-one-element__close-button space-button"
@@ -32,11 +37,7 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
           <IoMdArrowBack />
           Back
         </button>
-        <img
-          className="space-one-element__img"
-          src={`${data.url}`}
-          alt={`${data.title}`}
-        />
+
         <button
           className="space-one-element__hd-button space-button"
           type="button"
