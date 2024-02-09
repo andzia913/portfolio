@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PictureAPIData } from "../types/PictureApiData";
 import { IoMdArrowBack } from "react-icons/io";
 import "../styles/spaceOneElement.scss";
+
 interface SpaceOneElementProps {
   pictureData: PictureAPIData | null;
   handleDateChange: (date: string) => void;
@@ -14,7 +15,6 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
   handleCloseOnePicture,
 }) => {
   const [selectedDate, setSelectedDate] = useState<string>("");
-  const [dateFromInput, setDateFromInput] = useState<string>("");
   const [data, setData] = useState<any>(pictureData);
 
   useEffect(() => {
@@ -50,7 +50,9 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
           See in HD quality
         </button>
         <p className="space-one-element__title">{data.title}</p>
-        <p className="space-one-element__copyright">Author: {data.copyright}</p>
+        {data.copyright && (
+          <p className="space-one-element__copyright">{data.copyright}</p>
+        )}
         <p className="space-one-element__explanation">{data.explanation}</p>
         <p className="space-one-element__date">
           Picture of the day {data.date}
@@ -59,7 +61,7 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
           className="space-one-element__form"
           onSubmit={(e) => {
             e.preventDefault();
-            setSelectedDate(dateFromInput);
+            handleDateChange(selectedDate);
           }}
         >
           <label htmlFor="date" className="space-one-element__label">
@@ -69,7 +71,7 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
               type="date"
               id="date"
               onChange={(e) => {
-                handleDateChange(e.target.value);
+                setSelectedDate(e.target.value);
               }}
             />
           </label>
