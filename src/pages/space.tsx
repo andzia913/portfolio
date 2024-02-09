@@ -44,7 +44,6 @@ const Space: React.FC = () => {
     setDate(date);
   };
   const handleCloseOnePicture = () => {
-    setDate("");
     setOneItemDisplay(null);
   };
 
