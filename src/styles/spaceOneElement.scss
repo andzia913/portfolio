@@ -15,17 +15,13 @@
         padding: 20px 10px;
         font-weight: 600;
         font-size: 20px;
+        margin-top: -170px;
     }
-    &__close-button {
-
-        }
     
- 
     &__hd-button{
         position: absolute;
         right:10px;
         top:22px;
-        
         }
     
     &__title{
@@ -40,11 +36,11 @@
     }
     &__form{
         display: flex;
-        flex-direction: column;
-        align-items: center;   
-    font-size: 17px; }
-    &__label{
-            }
+        flex-direction: row;
+        align-items: center;  
+        justify-content: center; 
+        font-size: 17px;
+     }
     &__input{
         background-color: transparent;
         margin: 0;
@@ -54,7 +50,7 @@
         border: 1px solid black;
     }
     &__submit-button{
-        
+        display: inline-block;
     }
     &__explanation{
         text-align: justify;
