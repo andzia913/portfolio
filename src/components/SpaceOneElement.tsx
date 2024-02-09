@@ -17,6 +17,10 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
   const [dateFromInput, setDateFromInput] = useState<string>("");
   const [data, setData] = useState<any>(pictureData);
 
+  useEffect(() => {
+    setData(pictureData);
+  }, [pictureData]);
+
   const handleOpenHDImg = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     window.open(data.hdurl, "_blank");
@@ -46,7 +50,7 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
           See in HD quality
         </button>
         <p className="space-one-element__title">{data.title}</p>
-
+        <p className="space-one-element__copyright">Author: {data.copyright}</p>
         <p className="space-one-element__explanation">{data.explanation}</p>
         <p className="space-one-element__date">
           Picture of the day {data.date}

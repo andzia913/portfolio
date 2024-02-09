@@ -6,4 +6,5 @@ export interface PictureAPIData {
   service_version: string;
   title: string;
   url: string;
+  copyright?: string;
 }

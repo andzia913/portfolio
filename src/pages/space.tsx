@@ -4,6 +4,7 @@ import ApiService from "../services/spaceApiService";
 import { PictureAPIData } from "../types/PictureApiData";
 import SpaceOneElement from "../components/SpaceOneElement";
 import "../styles/space.scss";
+import { on } from "events";
 
 const Space: React.FC = () => {
   const [data, setData] = useState<PictureAPIData[] | null>(null);
@@ -20,6 +21,8 @@ const Space: React.FC = () => {
     const fetchData = async (countOfRandomImages: number, date: string) => {
       try {
         const response = await ApiService(countOfRandomImages, date);
+        data && setOneItemDisplay(response);
+        console.log(oneItemDisplay, "oneItemDisplay");
         setData(response);
         setLoading(false);
       } catch (error) {
