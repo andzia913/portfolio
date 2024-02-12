@@ -1,10 +1,9 @@
-import React, { useState, useEffect, StrictMode } from "react";
+import React, { useState, useEffect } from "react";
 import SpaceGallery from "../components/SpaceGallery";
 import ApiService from "../services/spaceApiService";
 import { PictureAPIData } from "../types/PictureApiData";
 import SpaceOneElement from "../components/SpaceOneElement";
 import "../styles/space.scss";
-import { on } from "events";
 
 const Space: React.FC = () => {
   const [data, setData] = useState<PictureAPIData[] | null>(null);
@@ -18,11 +17,9 @@ const Space: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-    const fetchData = async (countOfRandomImages: number, date: string) => {
+    const fetchData = async (countOfRandomImages: number) => {
       try {
-        const response = await ApiService(countOfRandomImages, date);
-        data && setOneItemDisplay(response);
-        console.log(oneItemDisplay, "oneItemDisplay");
+        const response = await ApiService(countOfRandomImages);
         setData(response);
         setLoading(false);
       } catch (error) {
@@ -30,22 +27,29 @@ const Space: React.FC = () => {
         setLoading(false);
       }
     };
-    fetchData(countOfRandomImages, date);
-  }, [countOfRandomImages, date]);
+    fetchData(countOfRandomImages);
+  }, [countOfRandomImages]);
+
+  useEffect(() => {
+    setLoading(true);
+    const fetchData = async (date: string) => {
+      try {
+        const response = await ApiService(undefined, date);
+        data && setOneItemDisplay(response);
+        setLoading(false);
+      } catch (error) {
+        setError((error as Error).message);
+        setLoading(false);
+      }
+    };
+    fetchData(date);
+  }, [date]);
   console.log(countOfRandomImages, "countOfRandomImages");
 
-  const handleChangeCount = (count: number) => {
-    setCountOfRandomImages(count);
-  };
-  const handlePictureClick = (item: PictureAPIData) => {
-    setOneItemDisplay(item);
-  };
-  const handleDateChange = (date: string) => {
-    setDate(date);
-  };
-  const handleCloseOnePicture = () => {
-    setOneItemDisplay(null);
-  };
+  const handleChangeCount = (count: number) => setCountOfRandomImages(count);
+  const handlePictureClick = (item: PictureAPIData) => setOneItemDisplay(item);
+  const handleDateChange = (date: string) => setDate(date);
+  const handleCloseOnePicture = () => setOneItemDisplay(null);
 
   return (
     <div className="space">
