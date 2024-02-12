@@ -73,6 +73,7 @@ const SpaceOneElement: React.FC<SpaceOneElementProps> = ({
               onChange={(e) => {
                 setSelectedDate(e.target.value);
               }}
+              max={new Date().toISOString().split("T")[0]}
             />
           </label>
           <button
