@@ -59,15 +59,7 @@ const ProjectsContainer: React.FC = () => {
       liveLink: "/",
       description:
         "Landing page about me and my projects, created in Gatsby. This portfolio provides a concise overview of my web development projects, tailored for recruiters' easy review. Explore my portfolio to see my capabilities and potential contributions to your team.",
-      technologies: [
-        "React",
-        "TypeScript",
-        "Gatsby",
-        "Scss",
-        "Css",
-        "HTML",
-        "RWD",
-      ],
+      technologies: ["React", "TypeScript", "Gatsby", "Scss"],
       additionalInfo: "This is the project you are currently viewing.",
     },
   ];
