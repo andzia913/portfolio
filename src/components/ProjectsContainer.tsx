@@ -57,6 +57,9 @@ const ProjectsContainer: React.FC = () => {
       title: "Portfolio landing page",
       githubLink: "https://github.com/andzia913/portfolio",
       liveLink: "/",
+      imageComponent: (
+        <StaticImage src="../images/portfolio.png" alt="This page screenshot" />
+      ),
       description:
         "Landing page about me and my projects, created in Gatsby. This portfolio provides a concise overview of my web development projects, tailored for recruiters' easy review. Explore my portfolio to see my capabilities and potential contributions to your team.",
       technologies: ["React", "TypeScript", "Gatsby", "Scss"],
