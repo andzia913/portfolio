@@ -52,6 +52,7 @@
         height: 100%;
         font-size: 25px;
         width:50px;
+        cursor: pointer;
         &-item{
             display: flex;
             justify-content: center;
@@ -86,8 +87,13 @@
         font-size: 18px;
         text-decoration: none;
         font-weight: 600;
+        display: flex;
+        cursor: pointer;
         &:hover{
             color: $tertiary-color;
+        }
+        & svg{
+            margin-right: 5px;
         }
     }
 }
