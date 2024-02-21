@@ -1,44 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../styles/contact.scss";
 import Popup from "./Popup";
 import Alert from "./Alert";
+import Spinner from "./Spinner";
 
 type AlertProps = {
   status: "success" | "error" | "info";
   text: string;
 };
 const Contact: React.FC = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [text, setText] = useState("");
-  const [organization, setOrganization] = useState("");
-  const [isShownAllert, setIsShownAlert] = useState(false);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const textRef = useRef<HTMLTextAreaElement>(null);
+  const organizationRef = useRef<HTMLInputElement>(null);
+  const [isShownAllert, setIsShownAlert] = useState(true);
   const [alertProps, setAlertProps] = useState<AlertProps>({
-    status: "info",
-    text: "",
+    status: "success",
+    text: "lorem ipsum dolor emit lorem ipsum dolorde nshshdjd smsksksk",
   });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => emailjs.init("IU2Xd6AGrVn_7cJIR"), []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await emailjs.send("service_a2k0mei", "template_ej0rav4", {
-        name: name,
-        email: email,
-        text: text,
-        organization: organization,
+        name: nameRef.current?.value,
+        email: emailRef.current?.value,
+        text: textRef.current?.value,
+        organization: organizationRef.current?.value,
       });
       setIsShownAlert(true);
       setAlertProps({
         status: "success",
         text: "Message sent successfully!",
       });
-      setName("");
-      setEmail("");
-      setText("");
-      setOrganization("");
+      nameRef.current!.value = "";
+      emailRef.current!.value = "";
+      textRef.current!.value = "";
+      organizationRef.current!.value = "";
     } catch (error) {
       setIsShownAlert(true);
       setAlertProps({
@@ -46,6 +49,7 @@ const Contact: React.FC = () => {
         text: "Something went wrong. Please try again later.",
       });
     }
+    setLoading(false);
   };
   useEffect(() => {
     if (isShownAllert) {
@@ -74,11 +78,10 @@ const Contact: React.FC = () => {
             Name:
           </label>
           <input
+            ref={nameRef}
             type="text"
             id="name"
             className="contact__input"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -91,8 +94,7 @@ const Contact: React.FC = () => {
             type="email"
             id="email"
             className="contact__input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            ref={emailRef}
             required
           />
         </div>
@@ -104,8 +106,7 @@ const Contact: React.FC = () => {
             type="text"
             id="organization"
             className="contact__input"
-            value={organization}
-            onChange={(e) => setOrganization(e.target.value)}
+            ref={organizationRef}
           />
         </div>
         <div className="contact__field">
@@ -116,15 +117,18 @@ const Contact: React.FC = () => {
             id="text"
             className="contact__textarea"
             rows={5}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
+            ref={textRef}
             required
           />
         </div>
 
-        <button type="submit" className="contact__button button">
-          Submit
-        </button>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <button type="submit" className="contact__button button">
+            Submit
+          </button>
+        )}
       </form>
     </div>
   );
