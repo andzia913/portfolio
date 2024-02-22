@@ -34,14 +34,14 @@ const Technologies: React.FC = () => {
           </div>
         ))}
       </div>
+      {isOtherShown && <OtherTechnologies />}
       <a
         className="button"
         onClick={() => setIsOtherShown((current) => !current)}
         href="#other-technologies"
       >
-        See more
+        {isOtherShown ? "See less" : "See more"}
       </a>
-      {isOtherShown && <OtherTechnologies />}
     </div>
   );
 };
