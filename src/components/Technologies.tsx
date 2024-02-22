@@ -6,7 +6,6 @@ import { SiTypescript } from "react-icons/si";
 import { FaGitAlt } from "react-icons/fa";
 import { SiMysql } from "react-icons/si";
 import "../styles/technologies.scss";
-import Popup from "./Popup";
 import OtherTechnologies from "./OtherTechnologies";
 
 interface Technology {
@@ -15,11 +14,7 @@ interface Technology {
 }
 
 const Technologies: React.FC = () => {
-  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
-
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
+  const [isOtherShown, setIsOtherShown] = React.useState(false);
 
   const technologies: Technology[] = [
     { name: "React", icon: <FaReact /> },
@@ -30,7 +25,7 @@ const Technologies: React.FC = () => {
   ];
 
   return (
-    <div className="technologies" onClick={() => setIsPopupOpen(true)}>
+    <div className="technologies">
       <div className="technologies__container">
         {technologies.map((technology) => (
           <div key={technology.name} className="technology">
@@ -39,15 +34,14 @@ const Technologies: React.FC = () => {
           </div>
         ))}
       </div>
-      <button className="button" onClick={() => setIsPopupOpen(true)}>
-        See all
-      </button>
-      {isPopupOpen && (
-        <Popup
-          handleClosePopup={handleClosePopup}
-          children={<OtherTechnologies />}
-        />
-      )}
+      <a
+        className="button"
+        onClick={() => setIsOtherShown((current) => !current)}
+        href="#other-technologies"
+      >
+        See more
+      </a>
+      {isOtherShown && <OtherTechnologies />}
     </div>
   );
 };
