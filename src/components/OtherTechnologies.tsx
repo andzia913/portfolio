@@ -94,7 +94,7 @@ const OtherTechnologies: React.FC = () => {
 
   return (
     <>
-      <div className="other-technologies">
+      <div className="other-technologies" id="other-technologies">
         <div className="other-technologies__group">
           <h4 className="other-technologies__group-name">UI Development</h4>
           {uiDevelopment.map((element, index) => (
