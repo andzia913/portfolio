@@ -12,7 +12,7 @@ const OtherTechnologiesElement: React.FC<OtherTechnologiesElementProps> = ({
 }) => {
   const [showDescription, setShowDescription] = useState(false);
   return (
-    <p
+    <div
       className="other-technologies__element"
       onClick={() => setShowDescription((currentValue) => !currentValue)}
     >
@@ -24,7 +24,7 @@ const OtherTechnologiesElement: React.FC<OtherTechnologiesElementProps> = ({
           {name + ". " + description}
         </div>
       )}
-    </p>
+    </div>
   );
 };
 
