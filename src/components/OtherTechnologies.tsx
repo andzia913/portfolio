@@ -99,6 +99,7 @@ const OtherTechnologies: React.FC = () => {
           <h4 className="other-technologies__group-name">UI Development</h4>
           {uiDevelopment.map((element, index) => (
             <OtherTechnologiesElement
+              key={index}
               name={element.name}
               description={element.description}
             />
@@ -110,6 +111,7 @@ const OtherTechnologies: React.FC = () => {
           </h4>
           {backendDevelopment.map((element, index) => (
             <OtherTechnologiesElement
+              key={index}
               name={element.name}
               description={element.description}
             />
@@ -121,6 +123,7 @@ const OtherTechnologies: React.FC = () => {
           </h4>
           {toolsAndPractices.map((element, index) => (
             <OtherTechnologiesElement
+              key={index}
               name={element.name}
               description={element.description}
             />
