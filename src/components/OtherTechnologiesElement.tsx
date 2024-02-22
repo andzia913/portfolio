@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoIosArrowForward } from "react-icons/io";
 import "../styles/other-technologies-element.scss";
 
 interface OtherTechnologiesElementProps {
@@ -17,7 +18,10 @@ const OtherTechnologiesElement: React.FC<OtherTechnologiesElementProps> = ({
       onClick={() => setShowDescription((currentValue) => !currentValue)}
     >
       {!showDescription && (
-        <div className="other-technologies__element-name">{name}</div>
+        <div className="other-technologies__element-name">
+          <IoIosArrowForward />
+          {name}
+        </div>
       )}
       {showDescription && (
         <div className="other-technologies__element-description">
