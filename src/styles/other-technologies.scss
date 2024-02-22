@@ -1,22 +1,25 @@
 @import 'main.scss';
 
 .other-technologies{
+    margin-top: 30px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    &__group{
-        margin: 0;
-    }
+    flex-direction: column;
+
     &__group-name{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        margin: 10px 20px;
+        border-bottom: 1px solid $tertiary-color;
+        color: $tertiary-color;
+        font-size: 20px;
     }
 }
 @media (min-width: map-get($break-points, md)) {
     .other-technologies{
         justify-content: center;
         align-items: stretch;
+        flex-direction: row;
+        &__group{
+            width: 30%;
+        }
     }
 }
 @media (min-width: map-get($break-points, lg)){
