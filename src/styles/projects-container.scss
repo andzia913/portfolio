@@ -6,10 +6,8 @@
 
     &__title{
         color: $secondary-color;
-        margin-bottom: 20px;
+        margin: 0 auto 20px auto;
         padding-left: 8%;
+        max-width: 1300px;
     }
-}
-@media (min-width: map-get($break-points, md)) {
-     
 }

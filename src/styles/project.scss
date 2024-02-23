@@ -86,8 +86,9 @@
         line-height: 18px;
         font-size: 18px;
         text-decoration: none;
-        font-weight: 600;
         display: flex;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $secondary-color;
         cursor: pointer;
         &:hover{
             color: $tertiary-color;
