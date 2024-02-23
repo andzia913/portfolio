@@ -24,3 +24,8 @@
         color: $background-color;
     }
 }
+@media (min-width: map-get($break-points, lg)){
+    .popup{
+        width: 50%;
+    }
+}
