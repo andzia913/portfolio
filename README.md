@@ -1,49 +1,24 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# Gatsby Landing Page with React and TypeScript
 
-## 🚀 Quick start
+Welcome to my Gatsby landing page project repository! This landing page is built with Gatsby using React and TypeScript. It showcases my projects, provides information about me, and enables visitors to contact me.
 
-1.  **Create a Gatsby site.**
+## Description
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+This landing page is crafted using Gatsby, a blazing fast modern site generator for React. React is utilized to create dynamic and interactive elements on the page. TypeScript is also incorporated to provide static typing and better code control.
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+## Features
 
-2.  **Start developing.**
+- Project Showcase: The page features a section where my projects are showcased. Each project is described along with a link to its repository and live website.
+- About Me: Here you'll find a brief description of me as a developer, along with my skills and experience.
+- Contact: A contact form is provided, allowing visitors to send messages directly to me.
 
-    Navigate into your new site’s directory and start it up.
+## Technologies Used
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+- Gatsby
+- React
+- TypeScript
+- HTML
+- Scss
 
-3.  **Open the code and start customizing!**
+### Thank you for visiting my repository! I hope you enjoy exploring my landing page.
 
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.tsx` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
