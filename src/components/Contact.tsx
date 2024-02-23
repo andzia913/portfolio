@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
   const [isShownAllert, setIsShownAlert] = useState(true);
   const [alertProps, setAlertProps] = useState<AlertProps>({
     status: "success",
-    text: "lorem ipsum dolor emit lorem ipsum dolorde nshshdjd smsksksk",
+    text: "",
   });
   const [loading, setLoading] = useState(false);
 
