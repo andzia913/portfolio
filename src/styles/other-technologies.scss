@@ -1,7 +1,7 @@
 @import 'main.scss';
 
 .other-technologies{
-    margin-top: 30px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
 
@@ -18,12 +18,16 @@
         align-items: stretch;
         flex-direction: row;
         &__group{
-            width: 30%;
+            width: 32%;
         }
     }
 }
 @media (min-width: map-get($break-points, lg)){
     .other-technologies{
-        background-color: $background-color;
+        margin-top: 80px;
+        justify-items: center;
+        &__group{
+            max-width: 450px;
+        }
     }
 }
