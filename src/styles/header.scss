@@ -30,3 +30,11 @@
     }
 
 }
+@media (min-width: map-get($break-points, lg)) {
+    .header{
+        &__content{
+            width: 60%;
+            margin: 0 auto;
+        }
+    }
+}
